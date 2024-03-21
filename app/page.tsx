@@ -1,13 +1,14 @@
-import NavBar from "./components/NavBar"
 
-import Sidebar from "./components/Sidebar"
-
+import BorderBottomComponent from "./components/BorderBottomComponent"
+import WhiteCard from "./components/WhiteCard"
 export default function Home(){
   return(
     <>
     
-      <NavBar/>
-      <Sidebar/>
+     <BorderBottomComponent/>
+   
+     <WhiteCard/>
+      
     </>
   )
 }
