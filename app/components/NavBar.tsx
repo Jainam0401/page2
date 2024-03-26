@@ -2,8 +2,8 @@ import { BellIcon } from "@heroicons/react/24/outline";
 
 export default function NavBar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 flex items-center justify-between px-4 py-2 z-10">
-      <a href="https://flowbite.com/" className="flex items-center">
+    <nav className=" bg-white border-b border-gray-200 flex items-center justify-between px-4 py-2 z-10">
+      <a href="/" className="flex items-center">
         <img
           src="https://shypbuddy.in/images/logo.png"
           className="h-8"
