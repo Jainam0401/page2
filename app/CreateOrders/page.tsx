@@ -10,7 +10,7 @@ export default function CreateOrder() {
         <div className="w-full max-w-[80%]  bg-black">
           <Form />
         </div>
-        <div className="w-full max-w-[20%] bg-gray-400" >
+        <div className="w-full max-w-[20%] h-[calc(100vh-48px)]  bg-white" >
           <DisplayNav />
         </div>
       </div>
