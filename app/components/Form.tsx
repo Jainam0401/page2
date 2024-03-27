@@ -1,8 +1,9 @@
 import React from "react";
-
+import Formbar from "./Formbar";
 function Form() {
   return (
-    <div className="bg-white w-full p-4 rounded-lg pt-7">
+    <div className="bg-white w-full  p-2 rounded-lg pt-4">
+      <Formbar />
       <div className="border-2 border-black rounded-md p-4">
         <div className="py-2">
           <p className="p-2 font-bold text-gray-700"> Buyer Details</p>
