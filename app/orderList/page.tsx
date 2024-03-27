@@ -2,8 +2,10 @@ import React from "react";
 import { IoIosCall } from "react-icons/io";
 import { FaBoltLightning } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
-import Table from "@/elements/Table";
+import TableHeading from "@/elements/TableHeading";
 import BorderBottomComponent from "../components/BorderBottomComponent";
+import Table from "@/elements/Table"
+
 
 const tabledata = [
   {
@@ -35,17 +37,11 @@ const tabledata = [
   // ...rest of the data
 ];
 
-export default function WhiteCard() {
+export default function TableCard() {
   return (
     <>
-    <BorderBottomComponent />
-    <div className="bg-white w-full p-5 rounded-md mx-auto overflow-auto  ">
-    
-
+      <BorderBottomComponent />
       <Table/>
-      </div>
-      
-   
     </>
   );
 }
