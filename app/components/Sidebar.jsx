@@ -27,7 +27,7 @@ export default function Sidebar() {
     return (
       <Link href={SidebarList.link} key={SidebarList.title}>
         <div className="hover:bg-sky-500 text-center mx-auto mt-[0px] z-10 py-4">
-          <SidebarList.icon className="fill-white text-center m-auto" />
+          <SidebarList.icon className="text-white text-center m-auto" />
           <h3 className="text-white m-3 text-center px-5  me-2 mb-2">{SidebarList.title}</h3>
         </div>
       </Link>
@@ -35,7 +35,7 @@ export default function Sidebar() {
   }
 
   return (
-    <nav className="z-20 flex flex-col w-40 bg-[#2b7aa5] text-gray-900">
+    <nav className="hidden md:flex z-20  flex-col w-40 bg-[#2b7aa5] text-gray-900">
       <div className="mt-10">{SidebarList.map(renderItems)}</div>
     </nav>
   );

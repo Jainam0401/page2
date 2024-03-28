@@ -5,7 +5,7 @@ import { PiNumberCircleTwoFill } from "react-icons/pi";;
 
 function Formbar() {
   return (
-    <div className="flex items-center text-base">
+    <div className="flex items-center text-base bg-white">
       <a href="#" className="inline-flex items-center text-black hover:text-rose-600 hover:underline">
         <div className="flex items-center ">
           <AiFillCheckCircle className="mr-2  text-rose-600" />

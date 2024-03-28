@@ -7,12 +7,12 @@ export default function CreateOrder() {
   return (
     <>
       <BorderBottomComponent />
-      <Formbar/>
-      <div className="flex w-full h-full justify-between gap-3">
-        <div className="w-full max-w-[80%]  bg-black">
+      {/* <Formbar/> */}
+      <div className="flex flex-col md:flex-row w-full h-full justify-between gap-3">
+        <div className="w-full md:max-w-[80%]">
           <Form />
         </div>
-        <div className="w-full max-w-[20%] h-[calc(100vh-48px)]  bg-white" >
+        <div className="w-full   md:max-w-[20%]   bg-white" >
           <DisplayNav />
         </div>
       </div>
