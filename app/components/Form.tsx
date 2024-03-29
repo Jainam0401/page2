@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Formbar from "./Formbar";
 import { Label, Textarea, Checkbox } from "flowbite-react";
-
+import axios from "axios";
 function Form() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -20,6 +20,7 @@ function Form() {
     shippingAddress: false,
     billingAddress: false,
   });
+  // pattJPON75qmq6HDb.3f377049f4905eda635f3b233255849212925f91728debfa6f6aa2567887e283
 
   const handleInputChange = (e:any) => {
     const { id, value, type, checked } = e.target;
@@ -27,13 +28,47 @@ function Form() {
     setFormData({ ...formData, [id]: newValue });
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData); // You can replace this with your desired action (e.g., sending data to a server)
-    // Convert formData to JSON
-    const jsonData = JSON.stringify(formData, null, 2);
-    console.log(jsonData);
+    try {
+      // Make a POST request to Airtable API
+      const response = await axios.post(
+        'https://api.airtable.com/v0/app2eNe5D8vIXqiRK/nothing',
+        { fields: formData }, // Pass form data here
+        {
+          headers: {
+            'Authorization': `Bearer pattJPON75qmq6HDb.3f377049f4905eda635f3b233255849212925f91728debfa6f6aa2567887e283`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      console.log('Data sent to Airtable:', response.data);
+      // Clear form data after successful submission
+      setFormData({
+        fullName: "",
+        email: "",
+        mobileNumber: "",
+        pincode: "",
+        state: "",
+        address: "",
+        date: "",
+        country: "",
+        cityName: "",
+        landmark: "",
+        others: "",
+        gstin: "",
+        shippingAddress: false,
+        billingAddress: false,
+      });
+      
+    } catch (error) {
+      console.error('Error sending data to Airtable:', error);
+    }
+
+    // Log formData as JSON
+    console.log('Form Data:', JSON.stringify(formData, null, 2));
   };
+
 
   return (
     
@@ -49,15 +84,14 @@ function Form() {
                 Full Name
               </label>
               <input
-                type="text"
-                value={formData.fullName}
-                  onChange={handleInputChange}
-              
-                id="fullName"
-                 
-                className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Enter your full name"
-              />
+  type="text"
+  name="fullName" // Add name attribute
+  value={formData.fullName}
+  onChange={handleInputChange}
+  id="fullName"
+  className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+  placeholder="Enter your full name"
+/>
             </div>
             <div>
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-500">
@@ -80,7 +114,7 @@ function Form() {
                value={formData.mobileNumber}
                onChange={handleInputChange}
                 type="number"
-                id="number"
+                id="mobileNumber"
                 className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="Enter your mobile number"
               />
@@ -162,7 +196,7 @@ function Form() {
                 </label>
                 <input
                   type="text"
-                  id="city"
+                  id="cityName"
                   value={formData.cityName}
                   onChange={handleInputChange}
                   className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
