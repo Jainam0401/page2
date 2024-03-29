@@ -10,13 +10,78 @@ function DisplayAddress() {
       name: 'Sam Sulek',
       city: 'Mumbai',
       address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
+    },
+    {
+      name: 'Sam Sulek',
+      city: 'Mumbai',
+      address: '2/5 golden building,athlete road near golden gym thane (W) Pincode 4000601'
     }
   ]
   return (
-    <div className='p-4'>
+    <div className='p-4 max-h-screen overflow-y-auto'>
       <div className='relative'>
         <CiSearch className='absolute text-xl top-[3px] left-[5px]'/>
-        <input className='pl-8 p-[2px] rounded-md text-sm border-2 border-slate-300' type='text' placeholder='Search Address' />
+        <input className='pl-8 p-[2px]  md:max-w-[200px] rounded-md text-sm border-2 border-slate-300' type='text' placeholder='Search Address' />
       </div>
         {/* <div className='grid grid-cols-4 p-4  border-b-2 border-dotted'>
           <div className='col-span-3'>

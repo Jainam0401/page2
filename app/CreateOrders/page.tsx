@@ -6,6 +6,7 @@ import Formbar from "../components/Formbar";
 export default function CreateOrder() {
   return (
     <>
+
       <div className="flex-col md:flex-row lg:flex-row flex">
         <BorderBottomComponent />
       </div>

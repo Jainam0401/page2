@@ -1,3 +1,4 @@
+<!-- <<<<<<< sweety-ka-form -->
 import React from "react";
 import Formbar from "./Formbar";
 function Form() {
@@ -147,6 +148,7 @@ function Form() {
           </div>
         </div>
       </div>
+<!-- <<<<<<< sweety-ka-form -->
     </div>
   );
 }
