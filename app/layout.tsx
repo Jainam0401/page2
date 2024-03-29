@@ -23,8 +23,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <div className="flex">
-          <Sidebar />
-          <main className="w-full h-full min-h-[calc(100vh-64px)] bg-gray-100 text-gray-600 p-4 overflow-y-auto">
+          {/* <Sidebar /> */}
+          {/* w-full h-full min-h-[calc(100vh-64px)] bg-gray-100 text-gray-600 overflow-y-auto */}
+          <main className="w-screen h-screen min-h-[calc(100vh-120px)] bg-gray-100 text-gray-600 overflow-y-auto">
             {children}
           </main>
         </div>
