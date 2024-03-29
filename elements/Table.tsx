@@ -2,7 +2,7 @@ import React from "react";
 import { IoIosCall } from "react-icons/io";
 import { FaBoltLightning } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
-import Button from "./button";
+import Button from "./Button";
 import TableHeading from "./TableHeading";
 
 const tabledata = [
