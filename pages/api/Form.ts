@@ -4,12 +4,14 @@ import axios from "axios";
 export default async function handler(req: NextApiRequest, res: NextApiResponse){
     if(req.method === 'POST'){
         try {
-            console.log(req.body);
-            const { fullName, email, phoneNumber, pincode, city, state, country, completeAddress, landmark, dateOfShipment, others, buyersCompanyName, buyersGSTIN} = req.body;
+            // console.log(req.body);
+            const { fullname, email, phoneNumber, pincode, city, state, country, completeAddress, landmark, dateOfShipment, others, buyersCompanyName, buyersGSTIN} = req.body;
+            // res.send(req.body);
+            // return
             const airtableApiKey = process.env.AIRTABLE_API_KEY;
             const airtableBaseId = process.env.AIRTABLE_BASE_ID;
             const airtableTableId = process.env.AIRTABLE_TABLE_ID;
-            const url = `https://api.airtable.com/v0/${airtableBaseId}/OrderTable`;
+            const url = `https://api.airtable.com/v0/${airtableBaseId}/${airtableTableId}`;
 
             const config = {
                 headers: {
@@ -20,19 +22,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             const dataFields = {
                 fields: {
-                    'Full_Name': fullName,
+                    'Full Name': fullname,
                     'Email': email,
-                    'Mobile_Number': phoneNumber,
+                    'Phone Number': phoneNumber,
                     'Pincode': pincode,
                     'City': city,
                     'State': state,
                     'Country': country,
-                    'Complete_Address': completeAddress,
+                    'Complete Address': completeAddress,
                     'Landmark': landmark,
-                    'Date_of_Shipment': dateOfShipment,
+                    'Date of Shipment': dateOfShipment,
                     'Others': others,
-                    'Buyers_Company_Name': buyersCompanyName,
-                    'Buyers_GSTIN': buyersGSTIN
+                    'Buyers Company Name': buyersCompanyName,
+                    'Buyers GSTIN': buyersGSTIN
                 }
             };
 
@@ -48,5 +50,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     else{
         res.setHeader('Allow', ['POST']);
         res.status(405).end(`Method ${req.method} Not Allowed`);
+    }
+    if (req.method === 'GET'){
+        res.send('Hello');
     }
 }
