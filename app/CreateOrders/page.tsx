@@ -1,6 +1,6 @@
 import Form from "../components/Form";
 import Subnav from "../components/Subnav";
-import DisplayNav from "../components/DisplayAddress";
+import DisplayAddress from "../components/DisplayAddress";
 import BorderBottomComponent from "../components/BorderBottomComponent";
 import Formbar from "../components/Formbar";
 export default function CreateOrder() {
@@ -14,7 +14,7 @@ export default function CreateOrder() {
           <Form />
         </div>
         <div className="w-full max-w-full md:max-w-[20%] bg-white">
-          <DisplayNav />
+          <DisplayAddress />
         </div>
       </div>
     </>
