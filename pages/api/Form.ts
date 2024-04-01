@@ -8,6 +8,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const { fullname, email, phoneNumber, pincode, city, state, country, completeAddress, landmark, dateOfShipment, others, buyersCompanyName, buyersGSTIN} = req.body;
             // res.send(req.body);
             // return
+
+            // Basic validation to ensure required fields are present
+            // if(!fullname || !phoneNumber || !pincode || !city || !state || !country || !completeAddress || !dateOfShipment){
+            //     return res.status(400).json({ error: 'Missing required fieds' });
+            // }
+
+            // // Validation for phone number (should have exactly 10 digits)
+            // if(!/^\d{10}$/.test(phoneNumber)){
+            //     return res.status(400).json({ error: 'Phone number should have exactly 10 digits' });
+            // }
+
+            // // Validation for pincode (should have exactly 6 digits)
+            // if(!/^\d{6}$/.test(pincode)){
+            //     return res.status(400).json({ error: 'Pincode should have exactly 6 digits' });
+            // }
+
             const airtableApiKey = process.env.AIRTABLE_API_KEY;
             const airtableBaseId = process.env.AIRTABLE_BASE_ID;
             const airtableTableId = process.env.AIRTABLE_TABLE_ID;

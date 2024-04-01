@@ -10,7 +10,9 @@ const Form: React.FC = () => {
     fullname: "",
     email: "",
     phoneNumber: "",
+    phoneNumberError: "",
     pincode: "",
+    pincodeError: "",
     city: "",
     state: "",
     country: "",
@@ -38,7 +40,9 @@ const Form: React.FC = () => {
         fullname: "",
         email: "",
         phoneNumber: "",
+        phoneNumberError: "",
         pincode: "",
+        pincodeError: "",
         city: "",
         state: "",
         country: "",
@@ -53,6 +57,22 @@ const Form: React.FC = () => {
       console.log("Error submitting form: ", error);
       alert("An error occured. Please try again later.");
     }
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const phoneNumber = e.target.value;
+    const phoneNumberError = /^\d{10}$/.test(phoneNumber)
+      ? ""
+      : "Phone number should have exactly 10 digits";
+    setFormData({ ...formData, phoneNumber, phoneNumberError });
+  };
+
+  const handlePincodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const pincode = e.target.value;
+    const pincodeError = /^\d{6}$/.test(pincode)
+      ? ""
+      : "Pincode should have exactly 6 digits";
+    setFormData({ ...formData, pincode, pincodeError });
   };
 
   return (
@@ -89,7 +109,7 @@ const Form: React.FC = () => {
           </h3>
           <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
             <div className="w-[200px] md:min-w-[30%]">
-              <p className="my-1 text-sm font-bold">Full Name</p>
+              <p className="my-1 text-sm font-bold ">Full Name<span className="text-red-500">*</span></p>
               <input
                 className="w-[100%] rounded-md border-[1px] border-slate-400 px-3"
                 type="text"
@@ -97,6 +117,7 @@ const Form: React.FC = () => {
                 placeholder="Enter your full name"
                 value={formData.fullname}
                 onChange={handleChange}
+                required
               />
             </div>
             <div className="w-[200px] md:min-w-[30%]">
@@ -111,15 +132,23 @@ const Form: React.FC = () => {
               />
             </div>
             <div className="w-[200px] md:min-w-[30%]">
-              <p className="my-1 text-sm font-bold">Mobile No.</p>
+              <p className="my-1 text-sm font-bold">Mobile No.<span className="text-red-500">*</span></p>
               <input
-                className="w-[100%] rounded-md border-[1px] border-slate-400 px-3"
+                className={`w-[100%] rounded-md border-[1px] border-slate-400 px-3" ${
+                  formData.phoneNumberError && "border-red-500"
+                }`}
                 type="number"
-                name="phonenumber"
+                name="phoneNumber"
                 placeholder="Enter your mobile no."
                 value={formData.phoneNumber}
-                onChange={handleChange}
+                onChange={handlePhoneChange}
+                required
               />
+              {formData.phoneNumberError && (
+                <p className="text-red-500 text-xs mt-1">
+                  {formData.phoneNumberError}
+                </p>
+              )}
             </div>
           </div>
           <p className="mt-2 cursor-pointer text-center text-sm font-semibold">
@@ -131,18 +160,26 @@ const Form: React.FC = () => {
           <div>
             <div className="flex flex-col items-center pt-4 md:flex-row md:space-x-4">
               <div className="w-[50%] min-w-[200px] md:w-[100%]">
-                <p className="font-bold">Pincode</p>
+                <p className="font-bold">Pincode<span className="text-red-500">*</span></p>
                 <input
-                  className="my-2 w-[100%] rounded-md border-[1px] border-slate-400 px-3"
+                  className={`my-2 w-[100%] rounded-md border-[1px] border-slate-400 px-3" ${
+                    formData.phoneNumberError && "border-red-500"
+                  }`}
                   type="number"
                   name="pincode"
                   placeholder="Enter pin"
                   value={formData.pincode}
-                  onChange={handleChange}
+                  onChange={handlePincodeChange}
+                  required
                 />
+                {formData.pincodeError && (
+                  <p className="text-red-500 text-xs mt-1">
+                    {formData.pincodeError}
+                  </p>
+                )}
               </div>
               <div className="mt-3 w-[50%] min-w-[200px] md:mt-0 md:w-[100%]">
-                <p className="font-bold">City</p>
+                <p className="font-bold">City<span className="text-red-500">*</span></p>
                 <input
                   className="my-2 w-[100%] rounded-md border-[1px] border-slate-400 px-3"
                   type="text"
@@ -150,12 +187,13 @@ const Form: React.FC = () => {
                   placeholder="Enter city name"
                   value={formData.city}
                   onChange={handleChange}
+                  required
                 />
               </div>
             </div>
             <div className="flex flex-col items-center pt-4 md:flex-row md:space-x-4">
               <div className="w-[50%] min-w-[200px] md:w-[100%]">
-                <p className="font-bold">State</p>
+                <p className="font-bold">State<span className="text-red-500">*</span></p>
                 <input
                   className="my-2 w-[100%] rounded-md border-[1px] border-slate-400 px-3"
                   type="text"
@@ -163,10 +201,11 @@ const Form: React.FC = () => {
                   placeholder="Enter your state"
                   value={formData.state}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="mt-3 w-[50%] min-w-[200px] md:mt-0 md:w-[100%]">
-                <p className="font-bold">Country</p>
+                <p className="font-bold">Country<span className="text-red-500">*</span></p>
                 <input
                   className="my-2 w-[100%] rounded-md border-[1px] border-slate-400 px-3"
                   type="text"
@@ -174,17 +213,19 @@ const Form: React.FC = () => {
                   placeholder="Enter your country"
                   value={formData.country}
                   onChange={handleChange}
+                  required
                 />
               </div>
             </div>
             <div className="flex flex-col items-center pt-4 md:flex-row md:space-x-4">
               <div className="w-[50%] min-w-[200px] md:w-[100%]">
-                <p className="font-bold">Complete Address</p>
+                <p className="font-bold">Complete Address<span className="text-red-500">*</span></p>
                 <textarea
                   className="my-2 h-[80px] w-[100%] rounded-md border-[1px] border-slate-400 text-sm text-slate-400"
                   name="completeAddress"
                   value={formData.completeAddress}
                   onChange={handleChange}
+                  required
                 >
                   House/Floor No., building name or street, locally
                 </textarea>
@@ -203,7 +244,7 @@ const Form: React.FC = () => {
             </div>
             <div className="flex flex-col items-center pt-4 md:flex-row md:space-x-4">
               <div className="w-[50%] min-w-[200px] md:w-[100%]">
-                <p className="font-bold">Date of Shipment</p>
+                <p className="font-bold">Date of Shipment<span className="text-red-500">*</span></p>
                 <input
                   className="my-2 w-[100%] rounded-md border-[1px] border-slate-400 px-3"
                   type="date"
@@ -211,6 +252,7 @@ const Form: React.FC = () => {
                   placeholder="Enter Date of Shipment"
                   value={formData.dateOfShipment}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="mt-3 w-[50%] min-w-[200px] md:mt-0 md:w-[100%]">
