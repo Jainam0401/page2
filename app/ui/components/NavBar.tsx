@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { FaBell } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import SidebarButtonStuff from "./SidebarButtonStuff";
+// import SidebarButtonStuff from "./SidebarButtonStuff";
 
 type SidebarState = boolean;
 
@@ -29,7 +29,7 @@ export default function NavBar() {
         className="text-xl ml-4 cursor-pointer md:hidden" 
         onClick={() => setSidebar(!sideBar)}
       />
-      <SidebarButtonStuff openOrClose={sideBar} setSidebar={setSidebar} />
+      {/* <SidebarButtonStuff openOrClose={sideBar} setSidebar={setSidebar} /> */}
     </nav>
   );
 }

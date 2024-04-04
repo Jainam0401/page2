@@ -1,8 +1,8 @@
-import Form from "../components/Form";
-import Subnav from "../components/Subnav";
-import DisplayAddress from "../components/DisplayAddress";
-import BorderBottomComponent from "../components/BorderBottomComponent";
-import Formbar from "../components/Formbar";
+import Form from "../ui/components/Form";
+import Subnav from "../ui/components/Subnav";
+import DisplayAddress from "../ui/components/DisplayAddress";
+import BorderBottomComponent from "../ui/components/BorderBottomComponent";
+import Formbar from "../ui/components/Formbar";
 export default function CreateOrder() {
   return (
     <>
