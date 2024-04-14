@@ -20,7 +20,7 @@ function DisplayAddress() {
               "Content-Type": "application/json",
             },
           }
-        );
+        );  
         console.log(response.data.records); // Log the fullName of the second record
         setData(response.data.records);
         setLoading(false);
