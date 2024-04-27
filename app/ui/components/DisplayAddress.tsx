@@ -10,28 +10,28 @@ function DisplayAddress() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await axios.get(
-    //       "https://api.airtable.com/v0/appdNFLZAYfxzxosx/nothing",
-    //       {
-    //         headers: {
-    //           Authorization: `Bearer patQntGqjDkxdlulD.0c16c807127b5e1704b17a071c92722777d78b085f7068f1e2121e65ce7b7347`,
-    //           "Content-Type": "application/json",
-    //         },
-    //       }
-    //     );
-    //     console.log(response.data.records); // Log the fullName of the second record
-    //     setData(response.data.records);
-    //     setLoading(false);
-    //   } catch (error) {
-    //     console.error("Error fetching data from Airtable:", error);
-    //     setError(error.message);
-    //     setLoading(false);
-    //   }
-    // };
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.airtable.com/v0/appdNFLZAYfxzxosx/nothing",
+          {
+            headers: {
+              Authorization: `Bearer patQntGqjDkxdlulD.0c16c807127b5e1704b17a071c92722777d78b085f7068f1e2121e65ce7b7347`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response.data.records); // Log the fullName of the second record
+        setData(response.data.records);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data from Airtable:", error);
+        setError(error.message);
+        setLoading(false);
+      }
+    };
 
-    // fetchData();
+    fetchData();
   }, []);
     if (loading) {  
       <div>loading...</div>
